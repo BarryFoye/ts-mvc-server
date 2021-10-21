@@ -8,7 +8,9 @@
 		"start": "node build/server.js",
 		"predev": "npm run swagger",
 		"prebuild": "npm run swagger",
-		"dev": "concurrently \"nodemon\" \"nodemon -x tsoa spec\"",
+		"dev": "nodemon --exec ./node_modules/.bin/ts-node ./src/server.ts",
+		"dev1": "concurrently \"nodemon\" \"nodemon -x tsoa spec\"",
+		"swagger": "tsoa spec",
 		"build": "rm -rf build/ && pretttier --write src/ && tsc",
 		"lint": "eslint . --ext .ts",
 		"lint-fix": "eslint . --ext .ts --fix",
@@ -19,7 +21,7 @@
 			"src"
 		],
 		"ext": "ts",
-		"exec": "ts-node src/index.ts"
+		"exec": "ts-node src/server.ts"
 	},
 	"keywords": [],
 	"author": "BarryFoye",
@@ -36,6 +38,7 @@
 		"eslint": "^8.0.0",
 		"eslint-config-prettier": "^8.3.0",
 		"eslint-plugin-prettier": "^4.0.0",
+		"nodemon": "^2.0.14",
 		"prettier": "^2.4.1",
 		"ts-node": "^10.3.0"
 	},
