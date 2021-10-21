@@ -1,5 +1,5 @@
 type Platform = {
-	platform_id: number;
+	platformId: number;
 
 	id: number;
 
@@ -9,11 +9,13 @@ type Platform = {
 
 	slug: string;
 
-	token_address: string;
+	tokenAddress: string;
+
+	coins: Coin[];
 };
 
-type MarketData = {
-	coin_id: number;
+type Coin = {
+	coinId: number;
 
 	id: number;
 
@@ -23,23 +25,67 @@ type MarketData = {
 
 	slug: string;
 
-	num_market_pairs: number;
+	numMarketPairs: number | null;
 
-	date_added: string;
+	dateAdded: string;
 
-	max_supply: number;
+	maxSupply: number | null;
 
-	circulating_supply: number;
+	circulatingSupply: number;
 
-	total_supply: number;
+	totalSupply: number;
+
+	cmcRank: number;
+
+	lastUpdated: string;
+
+	rank: number;
 
 	platform: Platform;
 
-	cmc_rank: number;
+	coinTags: CoinTags[];
 
-	last_updated: string;
-
-	rank: number;
+	quotes: Quotes[];
 };
 
-export { MarketData, Platform };
+type CoinTags = {
+	coinTagId: number;
+
+	coin: Coin;
+
+	tag: Tags;
+};
+
+type Quotes = {
+	quotesId: number;
+
+	currency: string;
+
+	price: string;
+
+	vol_24: string;
+
+	pctChange_1h: string;
+
+	pctChange_24h: string;
+
+	pctChange_7d: string;
+
+	marketCap: string;
+
+	fullyDilutedMc: string | null;
+
+	lastUpdated: string;
+
+	coin: Coin;
+};
+
+type Tags = {
+	tagId: number;
+
+	tag: string;
+
+	coinTags: CoinTags[];
+};
+
+export { Coin, Platform, CoinTags, Quotes, Tags };

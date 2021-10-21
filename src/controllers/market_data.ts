@@ -1,19 +1,14 @@
-import { Request, Response, NextFunction } from 'express';
 import axios, { AxiosResponse } from 'axios';
+import { Get, Route, Tags } from 'tsoa';
+import { Coin } from '../@types/app';
 
-import { MarketData } from '../@types/app';
-
-interface MktData {
-	data: MarketData;
+@Route('market_data')
+@Tags('MarketData')
+export default class MarketDataController {
+	@Get('/')
+	public async getWeeklySnapshots(): Promise<Coin> {
+		// get all weekly snapshots
+		let result: AxiosResponse = await axios.get(`http://localhost:3100/market_data`);
+		return result.data;
+	}
 }
-
-const getWeeklySnapshots = async (req: Request, res: Response, next: NextFunction) => {
-	// get all weekly snapshots
-	let result: AxiosResponse = await axios.get(`http://localhost:3100/market_data`);
-	let snapshots: [MktData] = result.data['message'];
-	return res.status(200).json({
-		message: snapshots
-	});
-};
-
-export default { getWeeklySnapshots };
