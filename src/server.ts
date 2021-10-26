@@ -53,4 +53,4 @@ router.use((req, res, next) => {
 
 const httpServer = http.createServer(router);
 const PORT: any = process.env.PORT ?? 3000;
-httpServer.listen(PORT, () => console.log(`${SERVER_TYPE} running on http://localhost:${PORT}/`));
+httpServer.listen(PORT, () => console.log(`${SERVER_TYPE} running on http://localhost:${PORT}/heartBeat`));
