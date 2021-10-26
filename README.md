@@ -1,4 +1,4 @@
-# Project Name
+# Nacho Banana - Gateway
 
 > This service app acts as a API gateway interface. It is designed to be the gateway between the web application and the underlying services which feed it data. Along with that the service will be a focal point for safety and security.
 
@@ -9,13 +9,17 @@
 -   [Features](#features)
 -   [Setup](#setup)
 -   [Usage](#usage)
+-   [Using Docker](#using-docker)
 -   [Room for Improvement](#room-for-improvement)
 
 ## General Information
 
 This is a component of the nacho-banana app designed to facilitate underlying services interactions such as data and authorisation without compromising the service itself. Therefore it allows for additional services to be added and evolve whilst respecting a single common interface for external calling apps.
 
-Generally this service has two functions, 1. To provide a gateway to application services and 2. to abstract the services in scope during a transaction.
+Generally this service has two functions:
+
+1. To provide a gateway to application services and
+2. To abstract the services in scope during a transaction.
 
 The main purpose is to have a single entry point for requests and for the gateway to forward them on and provide responses.
 
@@ -71,6 +75,37 @@ npm run start
 ```
 
 This then starts the production app. You can confirm this again by navigating to [swagger docs](http://localhost:3000/docs/).
+
+## Using Docker
+
+Here you can use docker for both dev and depolyment to production.
+
+### Dev instructions
+
+The dev environment is based off the Dockerfile.dev
+To run the dev environment use:
+
+```docker
+docker-compose up
+```
+
+Any changes made to the /src folder will automatically update in the docker environment.
+
+### Prod instructions
+
+The prod environment is based off the Dockerfile
+
+First we build the image:
+
+```docker
+docker build -t prod-mvc .
+```
+
+We then run the image:
+
+```docker
+docker run -p 3000:3000 prod-mvc
+```
 
 ## Room for Improvement
 
