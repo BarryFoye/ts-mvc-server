@@ -1,4 +1,4 @@
-# Project Name
+# Nacho Banana - Gateway
 
 > This service app acts as a API gateway interface. It is designed to be the gateway between the web application and the underlying services which feed it data. Along with that the service will be a focal point for safety and security.
 
@@ -16,7 +16,10 @@
 
 This is a component of the nacho-banana app designed to facilitate underlying services interactions such as data and authorisation without compromising the service itself. Therefore it allows for additional services to be added and evolve whilst respecting a single common interface for external calling apps.
 
-Generally this service has two functions, 1. To provide a gateway to application services and 2. to abstract the services in scope during a transaction.
+Generally this service has two functions:
+
+1. To provide a gateway to application services and
+2. To abstract the services in scope during a transaction.
 
 The main purpose is to have a single entry point for requests and for the gateway to forward them on and provide responses.
 
