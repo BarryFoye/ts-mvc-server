@@ -9,6 +9,7 @@
 -   [Features](#features)
 -   [Setup](#setup)
 -   [Usage](#usage)
+-   [Using Docker](#using-docker)
 -   [Room for Improvement](#room-for-improvement)
 
 ## General Information
@@ -71,6 +72,37 @@ npm run start
 ```
 
 This then starts the production app. You can confirm this again by navigating to [swagger docs](http://localhost:3000/docs/).
+
+## Using Docker
+
+Here you can use docker for both dev and depolyment to production.
+
+### Dev instructions
+
+The dev environment is based off the Dockerfile.dev
+To run the dev environment use:
+
+```docker
+docker-compose up
+```
+
+Any changes made to the /src folder will automatically update in the docker environment.
+
+### Prod instructions
+
+The prod environment is based off the Dockerfile
+
+First we build the image:
+
+```docker
+docker build -t prod-mvc .
+```
+
+We then run the image:
+
+```docker
+docker run -p 3000:3000 prod-mvc
+```
 
 ## Room for Improvement
 
