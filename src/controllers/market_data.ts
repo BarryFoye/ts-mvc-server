@@ -8,7 +8,7 @@ export default class MarketDataController {
 	@Get('/')
 	public async getWeeklySnapshots(): Promise<Coin> {
 		// get all weekly snapshots
-		let result: AxiosResponse = await axios.get(`http://localhost:3100/market_data`);
+		let result: AxiosResponse = await axios.get(`http://${process.env.DATA_SERVICE_HOST}:3100/market_data`);
 		return result.data;
 	}
 }
