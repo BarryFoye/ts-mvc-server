@@ -8,14 +8,14 @@ export default class MarketDataController {
 	@Get('/coin')
 	public async getWeeklySnapshots(): Promise<Coin> {
 		// get all weekly snapshots
-		let result: AxiosResponse = await axios.get(`http://localhost:3100/v1/market_data/coin`);
+		let result: AxiosResponse = await axios.get(`http://${process.env.DB_HOST}:3100/v1/market_data/coin`);
 		return result.data;
 	}
 
 	@Get('/tree_map')
 	public async dataTree(): Promise<Coin> {
 		// get all weekly snapshots
-		let result: AxiosResponse = await axios.get(`http://localhost:3100/v1/market_data/tree_map`);
+		let result: AxiosResponse = await axios.get(`http://${process.env.DB_HOST}/v1/market_data/tree_map`);
 		return result.data;
 	}
 }
