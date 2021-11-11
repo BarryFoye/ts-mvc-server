@@ -2,7 +2,7 @@ import axios, { AxiosResponse } from 'axios';
 import { Get, Route, Tags } from 'tsoa';
 import { Coin } from '../@types/app';
 
-const url = process.env.DB_HOST || 'localhost'; // TODO: this should be done at root through a config
+const url = process.env.DATA_SERVICE_HOST || 'localhost'; // TODO: this should be done at root through a config
 @Route('market_data')
 @Tags('MarketData')
 export default class MarketDataController {
