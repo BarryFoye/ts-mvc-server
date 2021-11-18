@@ -2,9 +2,12 @@
 	"name": "simple_api",
 	"version": "1.0.0",
 	"description": "",
+	"keywords": [],
+	"author": "BarryFoye",
+	"license": "ISC",
 	"main": "server.ts",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
+		"test": "jest",
 		"start": "node build/server.js",
 		"predev": "npm run swagger",
 		"prebuild": "npm run swagger",
@@ -23,13 +26,23 @@
 		"ext": "ts",
 		"exec": "ts-node src/server.ts"
 	},
-	"keywords": [],
-	"author": "BarryFoye",
-	"license": "ISC",
+	"jest": {
+		"transform": {
+			".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+		},
+		"testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+		"moduleFileExtensions": [
+			"ts",
+			"tsx",
+			"js"
+		],
+		"testResultsProcessor": "<rootDir>/node_modules/ts-jest/coverageprocessor.js"
+	},
 	"devDependencies": {
 		"@tsconfig/node14": "^1.0.1",
 		"@types/axios": "^0.14.0",
 		"@types/express": "^4.17.13",
+		"@types/jest": "^27.0.2",
 		"@types/morgan": "^1.9.3",
 		"@types/swagger-ui-express": "^4.1.3",
 		"@typescript-eslint/eslint-plugin": "^5.0.0",
@@ -38,8 +51,10 @@
 		"eslint": "^8.0.0",
 		"eslint-config-prettier": "^8.3.0",
 		"eslint-plugin-prettier": "^4.0.0",
+		"jest": "^27.3.1",
 		"nodemon": "^2.0.14",
 		"prettier": "^2.4.1",
+		"ts-jest": "^27.0.7",
 		"ts-node": "^10.3.0"
 	},
 	"dependencies": {

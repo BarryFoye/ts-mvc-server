@@ -111,3 +111,6 @@ build/
 
 # public folder (auto generated)
 public/
+
+# sonarqube files
+.scannerwork/
